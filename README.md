@@ -31,7 +31,9 @@ This game is incredibly lightweight and requires no server setups, databases, or
    ```bash
    git clone [https://github.com/YOUR-USERNAME/living-room-poetry.git](https://github.com/YOUR-USERNAME/living-room-poetry.git)
 
-##⚖️ Licensing & Copyright
+---
+
+## ⚖️ Licensing & Copyright
 This project operates under a split licensing model to protect the intellectual property of the original artist while keeping the game engine open-source.
 
 1. Game Code & Engine (MIT License)
