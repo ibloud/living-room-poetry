@@ -11,6 +11,7 @@
             --accent-color: #ff4a5a;
             --panel-bg: #181822;
             --border-color: #2b2b3d;
+            --gold-color: #ffd700;
         }
 
         body {
@@ -30,9 +31,12 @@
             max-width: 650px;
             background: var(--panel-bg);
             border: 2px solid var(--border-color);
-            padding: 30px;
+            padding: 20px;
             border-radius: 8px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         h1 {
@@ -42,10 +46,63 @@
             border-bottom: 2px double var(--border-color);
             padding-bottom: 10px;
             margin-top: 0;
+            margin-bottom: 15px;
             letter-spacing: 2px;
+            width: 100%;
+        }
+
+        #cabinet-art {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 4px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        /* --- Arcade Instruction Bezel Card --- */
+        #arcade-instructions {
+            width: 100%;
+            background: #1d1d2b;
+            border: 2px dashed var(--gold-color);
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+        #arcade-instructions h2 {
+            color: var(--gold-color);
+            margin-top: 0;
+            margin-bottom: 8px;
+            text-align: center;
+            font-size: 0.95rem;
+            letter-spacing: 1.5px;
+        }
+
+        .instruction-step {
+            margin-bottom: 6px;
+        }
+
+        .instruction-step span {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .arcade-psa {
+            text-align: center;
+            color: #8a8a9e;
+            font-size: 0.75rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 8px;
+            margin-top: 8px;
+            letter-spacing: 1px;
         }
 
         #stats-bar {
+            width: 100%;
             display: flex;
             justify-content: space-between;
             background: rgba(0,0,0,0.3);
@@ -53,6 +110,7 @@
             border: 1px solid var(--border-color);
             margin-bottom: 20px;
             font-size: 0.85rem;
+            box-sizing: border-box;
         }
 
         .stat span {
@@ -61,10 +119,13 @@
         }
 
         #story-text {
+            width: 100%;
             line-height: 1.6;
             margin-bottom: 25px;
             font-size: 1rem;
             min-height: 150px;
+            white-space: pre-line;
+            box-sizing: border-box;
         }
 
         #story-text h3 {
@@ -83,9 +144,11 @@
         }
 
         #choices-container {
+            width: 100%;
             display: flex;
             flex-direction: column;
             gap: 10px;
+            box-sizing: border-box;
         }
 
         .choice-btn {
@@ -121,7 +184,20 @@
 
 <div id="game-container">
     <h1>LIVING ROOM POETRY</h1>
+
+    <!-- Cabinet Art -->
+    <img id="cabinet-art" src="IMG_0850.jpeg" alt="Arcade cabinet artwork for Living Room Poetry">
     
+    <!-- Arcade Instructions Bezel -->
+    <div id="arcade-instructions">
+        <h2>★ HOW TO PLAY ★</h2>
+        <div class="instruction-step"><span>[STEP 1]:</span> Insert tea (PG Tips, splash of milk, two sugars). Keep your Tea level high to stay functional.</div>
+        <div class="instruction-step"><span>[STEP 2]:</span> Navigate comfort and lazy decisions. High Comfort feels great, but makes the sofa's gravitational pull much stronger.</div>
+        <div class="instruction-step"><span>[STEP 3]:</span> Avoid complete Brain Rot. Too much reality TV destroys your mental status. Binge films and games instead.</div>
+        <div class="instruction-step"><span>[OBJECTIVE]:</span> Survive the afternoon cycle and successfully stand up to beat the game!</div>
+        <div class="arcade-psa">⚠️ WINNERS DON'T WATCH "MADE IN CHELSEA"!</div>
+    </div>
+
     <div id="stats-bar">
         <div class="stat">Tea Quality: <span id="stat-tea">100%</span></div>
         <div class="stat">Comfort: <span id="stat-comfort">50%</span></div>
@@ -296,7 +372,6 @@
         }
 
         const bodyText = document.createElement('div');
-        // Render raw HTML to support list elements, links, and video iframe
         bodyText.innerHTML = passage.text.replace(/\n/g, '<br>');
         textContainer.appendChild(bodyText);
 
